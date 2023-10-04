@@ -13,3 +13,8 @@
 4. For requesting random numbers, call: function requestRandomWords(uint32 num_words,uint32 callback_gas_limit).
 Here, callback_gas_limit is the gas specified for post-fetching random no ops in fulfillRandomWords(). Max limit is 2.5 mil . Max limit for no of words is 500
 5. Callback_gas_limit might prevent from doing a lot of operations specially when no_of_words is high
+
+### Contract addresses
+contract random number: 0x43539DDDAdEbD26882d24695F3C8106cd4C83180  \
+										    0xa38C273c29d1C50416482a6a790d3A4951708735   \
+contract whitelist: 0x77325B013e5dc164C13892267A9075588069d87e
