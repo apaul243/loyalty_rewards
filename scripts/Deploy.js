@@ -1,27 +1,16 @@
 const hre = require('hardhat');
 
 async function main() {
-
   
-  const token = await hre.ethers.getContractFactory('TestToken');
-  const Token = await token.deploy();
-  await Token.deployed();
- 
-  console.log('Token deployed to:', Token.address);
-      
-  const vault = await hre.ethers.getContractFactory('Vault');
-  const Vault = await vault.deploy(Token.address);  
-  await Vault.deployed();
+  let coordinator = "0x7a1BaC17Ccc5b313516C5E16fb24f7659aA5ebed" 
+  let hash = "0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f"
+  let subid = 6103
 
-  console.log('Vault deployed to:', Vault.address);
+  const random = await hre.ethers.getContractFactory('RewardsLottery');
+  const Random = await random.deploy(subid,coordinator,hash);  
+  await Random.deployed();
 
-
-  const staking = await hre.ethers.getContractFactory('StakingUpgradeable');
-  const proxy = await upgrades.deployProxy(staking,[Token.address,Token.address,Vault.address,1000,true] )
-
-  await proxy.deployed();
-
-  console.log('Staking deployed to:', proxy.address);
+  console.log('Random deployed to:', Random.address);
 
 }
 

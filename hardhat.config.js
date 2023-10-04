@@ -1,10 +1,9 @@
 require("@nomiclabs/hardhat-etherscan");
-require ("@nomicfoundation/hardhat-foundry");
 require("hardhat-gas-reporter");
 require("hardhat-contract-sizer");
 require('@openzeppelin/hardhat-upgrades');
 require('dotenv').config();
-//const {prvkey, ETHERSCAN_API_KEY } = process.env;
+const {prvkey, ETHERSCAN_API_KEY } = process.env;
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -17,13 +16,13 @@ module.exports = {
     },
     hardhat: {
       allowUnlimitedContractSize: true,
-    }
- /*   mumbai: {
+    },
+    mumbai: {
       url: "https://rpc.ankr.com/polygon_mumbai",
       chainId: 80001,
       gasPrice: "auto",
       accounts: [`0x${prvkey}`]
-    } */
+    } 
   },
   solidity: {
     compilers: [
@@ -44,9 +43,9 @@ module.exports = {
     cache: "./cache",
     artifacts: "./artifacts"
   },
-/*  etherscan: {
+  etherscan: {
     apiKey: ETHERSCAN_API_KEY,
-  },  */
+  },  
   mocha: {
     timeout: 20000
   }
